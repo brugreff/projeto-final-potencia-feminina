@@ -1,8 +1,14 @@
-function showTab(tabID) {
-  var tabs = document.getElementsByClassName("tabContent");
-  for (var i = 0; i < tabs.length; i++) {
-    tabs[i].computedStyleMap.display = "none";
-  }
+document.addEventListener("DOMContentLoaded", function () {
+  const btnToggle = document.getElementById("btnToggle");
+  const infoBlocks = document.querySelectorAll(".info-block");
 
-  document.getElementById(tabId).style.display = "block";
-}
+  let currentIndex = 0;
+
+  btnToggle.addEventListener("click", function () {
+    infoBlocks[currentIndex].style.display = "none";
+
+    currentIndex = (currentIndex + 1) % infoBlocks.length;
+
+    infoBlocks[currentIndex].style.display = "block";
+  });
+});
